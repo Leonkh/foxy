@@ -1,0 +1,24 @@
+PODS:
+  - NeedleFoundation (0.17.2)
+  - PinLayout (1.10.0)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - NeedleFoundation
+  - PinLayout
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - NeedleFoundation
+    - PinLayout
+    - SnapKit
+
+SPEC CHECKSUMS:
+  NeedleFoundation: 36cfaea9ae9eb527a796f5c1df19296c722666b8
+  PinLayout: e50e9a748b632905fca6e67043ea4b05d6c92186
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: d16afd1dfaec01fd1471ca906532b070ba6af2d9
+
+COCOAPODS: 1.11.2
