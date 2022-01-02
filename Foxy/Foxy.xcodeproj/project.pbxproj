@@ -7,106 +7,198 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0FD778C277DE61E004D749C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FD778B277DE61E004D749C /* AppDelegate.swift */; };
-		B0FD778E277DE61E004D749C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FD778D277DE61E004D749C /* SceneDelegate.swift */; };
-		B0FD7790277DE61E004D749C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FD778F277DE61E004D749C /* ViewController.swift */; };
-		B0FD7793277DE61E004D749C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FD7791277DE61E004D749C /* Main.storyboard */; };
-		B0FD7796277DE61E004D749C /* Foxy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0FD7794277DE61E004D749C /* Foxy.xcdatamodeld */; };
-		B0FD7798277DE620004D749C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FD7797277DE620004D749C /* Assets.xcassets */; };
-		B0FD779B277DE620004D749C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FD7799277DE620004D749C /* LaunchScreen.storyboard */; };
-		EB0CA34D951BC767733FB0C1 /* Pods_Foxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C85B652251062BE6A1F0437 /* Pods_Foxy.framework */; };
+		1289FC17F2423456278AB1BC /* Pods_Foxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */; };
+		B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056627822119009B0782 /* FlickerSizePhoto.swift */; };
+		B0D9057327822119009B0782 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056727822119009B0782 /* Photo.swift */; };
+		B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */; };
+		B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */; };
+		B0D9057627822119009B0782 /* GetInterestingnessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */; };
+		B0D9057727822119009B0782 /* MainScreenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056B27822119009B0782 /* MainScreenComponent.swift */; };
+		B0D9057827822119009B0782 /* MainScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056D27822119009B0782 /* MainScreenModel.swift */; };
+		B0D9057927822119009B0782 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056E27822119009B0782 /* MainScreenViewModel.swift */; };
+		B0D9057A27822119009B0782 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057027822119009B0782 /* ImageCell.swift */; };
+		B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057127822119009B0782 /* MainScreenView.swift */; };
+		B0D9058027822121009B0782 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057D27822121009B0782 /* UIView+Extension.swift */; };
+		B0D9058127822121009B0782 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057E27822121009B0782 /* String+Extension.swift */; };
+		B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057F27822121009B0782 /* CGSize+Extension.swift */; };
+		B0D905842782212C009B0782 /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D905832782212C009B0782 /* RootComponent.swift */; };
+		B0D90587278221FB009B0782 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D90586278221FB009B0782 /* NeedleGenerated.swift */; };
+		B0E458232782202600D5E780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E458222782202600D5E780 /* AppDelegate.swift */; };
+		B0E4582D2782202600D5E780 /* Foxy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */; };
+		B0E4582F2782202800D5E780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E4582E2782202800D5E780 /* Assets.xcassets */; };
+		B0E458322782202800D5E780 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E458302782202800D5E780 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		655624273B03AF80F673F9A5 /* Pods-Foxy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.release.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.release.xcconfig"; sourceTree = "<group>"; };
-		6C85B652251062BE6A1F0437 /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0FD7788277DE61E004D749C /* Foxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0FD778B277DE61E004D749C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0FD778D277DE61E004D749C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0FD778F277DE61E004D749C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B0FD7792277DE61E004D749C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B0FD7795277DE61E004D749C /* Foxy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foxy.xcdatamodel; sourceTree = "<group>"; };
-		B0FD7797277DE620004D749C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B0FD779A277DE620004D749C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0FD779C277DE620004D749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBE4F90D4D46C12DB5818C6D /* Pods-Foxy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.debug.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.debug.xcconfig"; sourceTree = "<group>"; };
+		351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.debug.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.debug.xcconfig"; sourceTree = "<group>"; };
+		370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D9056627822119009B0782 /* FlickerSizePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerSizePhoto.swift; sourceTree = "<group>"; };
+		B0D9056727822119009B0782 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerPhotoRequest.swift; sourceTree = "<group>"; };
+		B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCaseGetPopularMethods.swift; sourceTree = "<group>"; };
+		B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInterestingnessResponse.swift; sourceTree = "<group>"; };
+		B0D9056B27822119009B0782 /* MainScreenComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenComponent.swift; sourceTree = "<group>"; };
+		B0D9056D27822119009B0782 /* MainScreenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenModel.swift; sourceTree = "<group>"; };
+		B0D9056E27822119009B0782 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		B0D9057027822119009B0782 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		B0D9057127822119009B0782 /* MainScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		B0D9057D27822121009B0782 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B0D9057E27822121009B0782 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B0D9057F27822121009B0782 /* CGSize+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
+		B0D905832782212C009B0782 /* RootComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
+		B0D90586278221FB009B0782 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		B0E4581F2782202600D5E780 /* Foxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0E458222782202600D5E780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0E4582C2782202600D5E780 /* Foxy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foxy.xcdatamodel; sourceTree = "<group>"; };
+		B0E4582E2782202800D5E780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0E458312782202800D5E780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0E458332782202800D5E780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1C2D5BD863CA441C79587FE /* Pods-Foxy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.release.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B0FD7785277DE61E004D749C /* Frameworks */ = {
+		B0E4581C2782202600D5E780 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0CA34D951BC767733FB0C1 /* Pods_Foxy.framework in Frameworks */,
+				1289FC17F2423456278AB1BC /* Pods_Foxy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7A2ECD097F85D691CC11E50F /* Frameworks */ = {
+		86D89FA0C653299749D9200C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6C85B652251062BE6A1F0437 /* Pods_Foxy.framework */,
+				370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B0FD777F277DE61E004D749C = {
+		AF5B63DB05A93194665B8B23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B0FD778A277DE61E004D749C /* Foxy */,
-				B0FD7789277DE61E004D749C /* Products */,
-				CD03B5ACD34594B1183A158D /* Pods */,
-				7A2ECD097F85D691CC11E50F /* Frameworks */,
+				351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */,
+				F1C2D5BD863CA441C79587FE /* Pods-Foxy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B0D9056427822119009B0782 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9056B27822119009B0782 /* MainScreenComponent.swift */,
+				B0D9056C27822119009B0782 /* mvvm */,
+				B0D9056527822119009B0782 /* models */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		B0D9056527822119009B0782 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9056627822119009B0782 /* FlickerSizePhoto.swift */,
+				B0D9056727822119009B0782 /* Photo.swift */,
+				B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */,
+				B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */,
+				B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		B0D9056C27822119009B0782 /* mvvm */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9057127822119009B0782 /* MainScreenView.swift */,
+				B0D9056E27822119009B0782 /* MainScreenViewModel.swift */,
+				B0D9056D27822119009B0782 /* MainScreenModel.swift */,
+				B0D9056F27822119009B0782 /* subviews */,
+			);
+			path = mvvm;
+			sourceTree = "<group>";
+		};
+		B0D9056F27822119009B0782 /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9057027822119009B0782 /* ImageCell.swift */,
+			);
+			path = subviews;
+			sourceTree = "<group>";
+		};
+		B0D9057C27822121009B0782 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9057D27822121009B0782 /* UIView+Extension.swift */,
+				B0D9057E27822121009B0782 /* String+Extension.swift */,
+				B0D9057F27822121009B0782 /* CGSize+Extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		B0D90588278229BF009B0782 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				B0E458222782202600D5E780 /* AppDelegate.swift */,
+				B0D90586278221FB009B0782 /* NeedleGenerated.swift */,
+				B0D905832782212C009B0782 /* RootComponent.swift */,
+				B0D9056427822119009B0782 /* MainScreen */,
+				B0D9057C27822121009B0782 /* extensions */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		B0D90589278229C5009B0782 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0E458302782202800D5E780 /* LaunchScreen.storyboard */,
+				B0E4582E2782202800D5E780 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0E458162782202600D5E780 = {
+			isa = PBXGroup;
+			children = (
+				B0E458212782202600D5E780 /* Foxy */,
+				B0E458202782202600D5E780 /* Products */,
+				AF5B63DB05A93194665B8B23 /* Pods */,
+				86D89FA0C653299749D9200C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		B0FD7789277DE61E004D749C /* Products */ = {
+		B0E458202782202600D5E780 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0FD7788277DE61E004D749C /* Foxy.app */,
+				B0E4581F2782202600D5E780 /* Foxy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0FD778A277DE61E004D749C /* Foxy */ = {
+		B0E458212782202600D5E780 /* Foxy */ = {
 			isa = PBXGroup;
 			children = (
-				B0FD778B277DE61E004D749C /* AppDelegate.swift */,
-				B0FD778D277DE61E004D749C /* SceneDelegate.swift */,
-				B0FD778F277DE61E004D749C /* ViewController.swift */,
-				B0FD7791277DE61E004D749C /* Main.storyboard */,
-				B0FD7797277DE620004D749C /* Assets.xcassets */,
-				B0FD7799277DE620004D749C /* LaunchScreen.storyboard */,
-				B0FD779C277DE620004D749C /* Info.plist */,
-				B0FD7794277DE61E004D749C /* Foxy.xcdatamodeld */,
+				B0D90588278229BF009B0782 /* Code */,
+				B0D90589278229C5009B0782 /* Resources */,
+				B0E458332782202800D5E780 /* Info.plist */,
+				B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */,
 			);
 			path = Foxy;
-			sourceTree = "<group>";
-		};
-		CD03B5ACD34594B1183A158D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DBE4F90D4D46C12DB5818C6D /* Pods-Foxy.debug.xcconfig */,
-				655624273B03AF80F673F9A5 /* Pods-Foxy.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0FD7787277DE61E004D749C /* Foxy */ = {
+		B0E4581E2782202600D5E780 /* Foxy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0FD779F277DE620004D749C /* Build configuration list for PBXNativeTarget "Foxy" */;
+			buildConfigurationList = B0E458362782202800D5E780 /* Build configuration list for PBXNativeTarget "Foxy" */;
 			buildPhases = (
-				EF5C9A1C52462D607C4EC6C4 /* [CP] Check Pods Manifest.lock */,
-				B0FD7784277DE61E004D749C /* Sources */,
-				B0FD7785277DE61E004D749C /* Frameworks */,
-				B0FD7786277DE61E004D749C /* Resources */,
-				34BEF3FE2548829B71C4981E /* [CP] Embed Pods Frameworks */,
+				F9EAA7432D7EF3776E414112 /* [CP] Check Pods Manifest.lock */,
+				B0E4581B2782202600D5E780 /* Sources */,
+				B0E4581C2782202600D5E780 /* Frameworks */,
+				B0E4581D2782202600D5E780 /* Resources */,
+				12C530D717530CA0F61ECDDD /* [CP] Embed Pods Frameworks */,
+				B0D905852782214F009B0782 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -114,25 +206,25 @@
 			);
 			name = Foxy;
 			productName = Foxy;
-			productReference = B0FD7788277DE61E004D749C /* Foxy.app */;
+			productReference = B0E4581F2782202600D5E780 /* Foxy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B0FD7780277DE61E004D749C /* Project object */ = {
+		B0E458172782202600D5E780 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					B0FD7787277DE61E004D749C = {
+					B0E4581E2782202600D5E780 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = B0FD7783277DE61E004D749C /* Build configuration list for PBXProject "Foxy" */;
+			buildConfigurationList = B0E4581A2782202600D5E780 /* Build configuration list for PBXProject "Foxy" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,31 +232,30 @@
 				en,
 				Base,
 			);
-			mainGroup = B0FD777F277DE61E004D749C;
-			productRefGroup = B0FD7789277DE61E004D749C /* Products */;
+			mainGroup = B0E458162782202600D5E780;
+			productRefGroup = B0E458202782202600D5E780 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0FD7787277DE61E004D749C /* Foxy */,
+				B0E4581E2782202600D5E780 /* Foxy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B0FD7786277DE61E004D749C /* Resources */ = {
+		B0E4581D2782202600D5E780 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FD779B277DE620004D749C /* LaunchScreen.storyboard in Resources */,
-				B0FD7798277DE620004D749C /* Assets.xcassets in Resources */,
-				B0FD7793277DE61E004D749C /* Main.storyboard in Resources */,
+				B0E458322782202800D5E780 /* LaunchScreen.storyboard in Resources */,
+				B0E4582F2782202800D5E780 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		34BEF3FE2548829B71C4981E /* [CP] Embed Pods Frameworks */ = {
+		12C530D717530CA0F61ECDDD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,7 +272,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foxy/Pods-Foxy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF5C9A1C52462D607C4EC6C4 /* [CP] Check Pods Manifest.lock */ = {
+		B0D905852782214F009B0782 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SOURCEKIT_LOGGING=0 && needle generate Foxy/NeedleGenerated.swift Foxy/\n";
+		};
+		F9EAA7432D7EF3776E414112 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -206,32 +314,37 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B0FD7784277DE61E004D749C /* Sources */ = {
+		B0E4581B2782202600D5E780 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FD7790277DE61E004D749C /* ViewController.swift in Sources */,
-				B0FD778C277DE61E004D749C /* AppDelegate.swift in Sources */,
-				B0FD778E277DE61E004D749C /* SceneDelegate.swift in Sources */,
-				B0FD7796277DE61E004D749C /* Foxy.xcdatamodeld in Sources */,
+				B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */,
+				B0D9058027822121009B0782 /* UIView+Extension.swift in Sources */,
+				B0D9057927822119009B0782 /* MainScreenViewModel.swift in Sources */,
+				B0D90587278221FB009B0782 /* NeedleGenerated.swift in Sources */,
+				B0D9057A27822119009B0782 /* ImageCell.swift in Sources */,
+				B0D9057327822119009B0782 /* Photo.swift in Sources */,
+				B0D905842782212C009B0782 /* RootComponent.swift in Sources */,
+				B0D9057627822119009B0782 /* GetInterestingnessResponse.swift in Sources */,
+				B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */,
+				B0D9057727822119009B0782 /* MainScreenComponent.swift in Sources */,
+				B0D9058127822121009B0782 /* String+Extension.swift in Sources */,
+				B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */,
+				B0E458232782202600D5E780 /* AppDelegate.swift in Sources */,
+				B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */,
+				B0E4582D2782202600D5E780 /* Foxy.xcdatamodeld in Sources */,
+				B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */,
+				B0D9057827822119009B0782 /* MainScreenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B0FD7791277DE61E004D749C /* Main.storyboard */ = {
+		B0E458302782202800D5E780 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B0FD7792277DE61E004D749C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B0FD7799277DE620004D749C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0FD779A277DE620004D749C /* Base */,
+				B0E458312782202800D5E780 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -239,7 +352,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B0FD779D277DE620004D749C /* Debug */ = {
+		B0E458342782202800D5E780 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,7 +413,7 @@
 			};
 			name = Debug;
 		};
-		B0FD779E277DE620004D749C /* Release */ = {
+		B0E458352782202800D5E780 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,9 +468,9 @@
 			};
 			name = Release;
 		};
-		B0FD77A0277DE620004D749C /* Debug */ = {
+		B0E458372782202800D5E780 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBE4F90D4D46C12DB5818C6D /* Pods-Foxy.debug.xcconfig */;
+			baseConfigurationReference = 351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -368,11 +481,10 @@
 				INFOPLIST_FILE = Foxy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,9 +498,9 @@
 			};
 			name = Debug;
 		};
-		B0FD77A1277DE620004D749C /* Release */ = {
+		B0E458382782202800D5E780 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 655624273B03AF80F673F9A5 /* Pods-Foxy.release.xcconfig */;
+			baseConfigurationReference = F1C2D5BD863CA441C79587FE /* Pods-Foxy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -399,11 +511,10 @@
 				INFOPLIST_FILE = Foxy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,20 +531,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0FD7783277DE61E004D749C /* Build configuration list for PBXProject "Foxy" */ = {
+		B0E4581A2782202600D5E780 /* Build configuration list for PBXProject "Foxy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0FD779D277DE620004D749C /* Debug */,
-				B0FD779E277DE620004D749C /* Release */,
+				B0E458342782202800D5E780 /* Debug */,
+				B0E458352782202800D5E780 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0FD779F277DE620004D749C /* Build configuration list for PBXNativeTarget "Foxy" */ = {
+		B0E458362782202800D5E780 /* Build configuration list for PBXNativeTarget "Foxy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0FD77A0277DE620004D749C /* Debug */,
-				B0FD77A1277DE620004D749C /* Release */,
+				B0E458372782202800D5E780 /* Debug */,
+				B0E458382782202800D5E780 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -441,17 +552,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B0FD7794277DE61E004D749C /* Foxy.xcdatamodeld */ = {
+		B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B0FD7795277DE61E004D749C /* Foxy.xcdatamodel */,
+				B0E4582C2782202600D5E780 /* Foxy.xcdatamodel */,
 			);
-			currentVersion = B0FD7795277DE61E004D749C /* Foxy.xcdatamodel */;
+			currentVersion = B0E4582C2782202600D5E780 /* Foxy.xcdatamodel */;
 			path = Foxy.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = B0FD7780277DE61E004D749C /* Project object */;
+	rootObject = B0E458172782202600D5E780 /* Project object */;
 }

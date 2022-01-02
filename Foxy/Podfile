@@ -5,6 +5,9 @@ target 'Foxy' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  pod 'OpenCombine', '~> 0.12.0'
+  pod 'OpenCombineDispatch', '~> 0.12.0'
+  pod 'OpenCombineFoundation', '~> 0.12.0'
   pod 'NeedleFoundation'
   pod 'SnapKit'
   pod 'PinLayout'

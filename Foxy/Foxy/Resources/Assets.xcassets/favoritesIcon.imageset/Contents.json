@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iconmonstr-favorite-3.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
