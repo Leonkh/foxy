@@ -118,7 +118,7 @@ final class MainScreenModelImpl {
                             debugPrint(error)
                         }
                     }
-                    self.start()
+                    self.initTimer()
                     print("success load photo")
                 } else {
                     print("fail with data = \(value)")
@@ -136,7 +136,7 @@ final class MainScreenModelImpl {
             case .success(let photos):
                 self.randomPhoto = photos.randomElement()
                 print("success loaded from cache photo count \(photos.count)")
-                self.start()
+                self.initTimer()
             case .failure(let error):
                 debugPrint(error)
             }
@@ -153,6 +153,15 @@ extension MainScreenModelImpl: MainScreenModel {
     var networkStatusPublisher: OpenCombine.Published<NetworkStatus>.Publisher { $currentNetworkStatus }
     
     func start() {
+        switch currentNetworkStatus {
+        case .enabled:
+            loadPhotoListFromInternet()
+        case .disabled:
+            loadPhotoListFromCache()
+        }
+    }
+    
+    private func initTimer() {
         cancellables.removeAll()
         timerToken = Timer.publish(every: Constants.timeIntervalForUpdatePhoto,
                                    on: .main,
@@ -166,12 +175,7 @@ extension MainScreenModelImpl: MainScreenModel {
                 
                 self.randomPhoto = nil
                 self.timerToken?.cancel()
-                switch self.currentNetworkStatus {
-                case .enabled:
-                    self.loadPhotoListFromInternet()
-                case .disabled:
-                    self.loadPhotoListFromCache()
-                }
+                self.start()
             })
     }
     
@@ -199,6 +203,7 @@ extension MainScreenModelImpl: NetworkManagerDelegate {
         }
         
         currentNetworkStatus = newStatus
+        start()
     }
     
 }
