@@ -64,6 +64,13 @@ final class MainScreenViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    private lazy var trashButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .trash,
+                                     target: self,
+                                     action: #selector(didTapTrashButton))
+        return button
+    }()
+    
     
    // MARK: - Init
     
@@ -84,6 +91,7 @@ final class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
+        setupNavBar()
         viewModel.start()
     }
     
@@ -97,6 +105,11 @@ final class MainScreenViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-view.safeAreaInsets.bottom)
             make.leading.trailing.equalToSuperview()
         }
+    }
+    
+    private func setupNavBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.leftBarButtonItem = trashButton
     }
     
     private func bindViewModel() {
@@ -131,6 +144,10 @@ final class MainScreenViewController: UIViewController {
     
     @objc private func refreshTable() {
         viewModel.start()
+    }
+    
+    @objc private func didTapTrashButton() {
+        viewModel.didTapTrashButton()
     }
     
 }

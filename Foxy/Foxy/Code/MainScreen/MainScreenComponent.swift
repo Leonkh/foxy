@@ -8,9 +8,16 @@
 import Foundation
 import NeedleFoundation
 
-final class MainScreenComponent: Component<EmptyDependency> {
+protocol MainScreenDependency: Dependency {
+    var coreDataManager: CoreDataManager { get }
+    var networkManager: NetworkManager { get }
+}
+
+final class MainScreenComponent: Component<MainScreenDependency> {
+    
     var mainScreenModel: MainScreenModel {
-        return MainScreenModelImpl()
+        return MainScreenModelImpl(coreDataManager: dependency.coreDataManager,
+                                   networkManager: dependency.networkManager)
     }
     
     var mainScreenViewModel: MainScreenViewModel {

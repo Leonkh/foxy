@@ -14,10 +14,11 @@ import UIKit
 protocol MainScreenModel {
     
     var randomPhotoPublisher: OpenCombine.Published<Photo?>.Publisher  { get }
+    var networkStatusPublisher: OpenCombine.Published<NetworkStatus>.Publisher { get }
     
     func start()
-    
     func didTapFavoriteButton(for photoId: String)
+    func didTapTrashButton()
 }
 
 final class MainScreenModelImpl {
@@ -27,17 +28,25 @@ final class MainScreenModelImpl {
     }
     
     @OpenCombine.Published private var randomPhoto: Photo?
-    
+    @OpenCombine.Published private var currentNetworkStatus: NetworkStatus = .enabled
     private var cancellables: [OpenCombine.AnyCancellable?] = []
     private var timerToken: OpenCombine.AnyCancellable?
     
     private var data: GetInterestingnessResponse?
+    private let coreDataManager: CoreDataManager
+    private let networkManager: NetworkManager
+    
+    init(coreDataManager: CoreDataManager,
+         networkManager: NetworkManager) {
+        self.coreDataManager = coreDataManager
+        self.networkManager = networkManager
+    }
     
     private var urlString: String {
         return "https://www.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=6b67245437e551d735fc9152ca4cba45&page=\(Int.random(in: 1...5))&format=json&nojsoncallback=1"
     }
     
-    private func downloadPhotoList() {
+    private func loadPhotoListFromInternet() {
         guard let url = URL(string: urlString) else {
             return
         }
@@ -91,10 +100,24 @@ final class MainScreenModelImpl {
                     return
                 }
                 
-                if let image = UIImage(data: value) {
-                    self.randomPhoto = Photo(data: photo,
-                                             image: image,
+                if UIImage(data: value) != nil {
+                    let newPhoto = Photo(id: photo.id,
+                                             owner: photo.owner,
+                                             secret: photo.secret,
+                                             server: photo.server,
+                                             farm: photo.farm,
+                                             title: photo.title,
+                                             ispublic: photo.ispublic,
+                                             isfriend: photo.isfriend,
+                                             isfamily: photo.isfamily,
+                                             imageData: value,
                                              isFavorite: false)
+                    self.randomPhoto = newPhoto
+                    self.coreDataManager.savePhoto(newPhoto) { result in
+                        if case .failure(let error) = result {
+                            debugPrint(error)
+                        }
+                    }
                     self.start()
                     print("success load photo")
                 } else {
@@ -103,6 +126,24 @@ final class MainScreenModelImpl {
             })
         cancellables.append(downloadSinglePhotoTask)
     }
+    
+    private func loadPhotoListFromCache() {
+        coreDataManager.loadPhotos { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let photos):
+                self.randomPhoto = photos.randomElement()
+                print("success loaded from cache photo count \(photos.count)")
+                self.start()
+            case .failure(let error):
+                debugPrint(error)
+            }
+            
+        }
+    }
 }
 
 extension MainScreenModelImpl: MainScreenModel {
@@ -110,6 +151,7 @@ extension MainScreenModelImpl: MainScreenModel {
     // MARK: - MainScreenModel
     
     var randomPhotoPublisher: OpenCombine.Published<Photo?>.Publisher  { $randomPhoto }
+    var networkStatusPublisher: OpenCombine.Published<NetworkStatus>.Publisher { $currentNetworkStatus }
     
     func start() {
         cancellables.removeAll()
@@ -125,11 +167,36 @@ extension MainScreenModelImpl: MainScreenModel {
                 
                 self.randomPhoto = nil
                 self.timerToken?.cancel()
-                self.downloadPhotoList()
+                switch self.currentNetworkStatus {
+                case .enabled:
+                    self.loadPhotoListFromInternet()
+                case .disabled:
+                    self.loadPhotoListFromCache()
+                }
+                
             })
     }
     
     func didTapFavoriteButton(for photoId: String) {
         
     }
+    
+    func didTapTrashButton() {
+        coreDataManager.deleteAllData { result in
+            if case .failure(let error) = result {
+                debugPrint(error)
+            }
+        }
+    }
+    
+}
+
+extension MainScreenModelImpl: NetworkManagerDelegate {
+    
+    // MARK: - NetworkManagerDelegate
+    
+    func didChangeNetworkStatus(to newStatus: NetworkStatus) {
+        currentNetworkStatus = newStatus
+    }
+    
 }

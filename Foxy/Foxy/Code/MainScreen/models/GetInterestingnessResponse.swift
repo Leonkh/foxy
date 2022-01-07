@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct GetInterestingnessResponse: Codable {
     let photos: GetInterestingnessResponseInternal

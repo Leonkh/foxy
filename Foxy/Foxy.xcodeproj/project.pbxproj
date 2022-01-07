@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1289FC17F2423456278AB1BC /* Pods_Foxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */; };
 		B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056627822119009B0782 /* FlickerSizePhoto.swift */; };
-		B0D9057327822119009B0782 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056727822119009B0782 /* Photo.swift */; };
 		B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */; };
 		B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */; };
 		B0D9057627822119009B0782 /* GetInterestingnessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */; };
@@ -23,17 +22,21 @@
 		B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9057F27822121009B0782 /* CGSize+Extension.swift */; };
 		B0D905842782212C009B0782 /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D905832782212C009B0782 /* RootComponent.swift */; };
 		B0D90587278221FB009B0782 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D90586278221FB009B0782 /* NeedleGenerated.swift */; };
+		B0D9058F2786DD0F009B0782 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9058E2786DD0F009B0782 /* CoreDataManager.swift */; };
+		B0D905932786E07E009B0782 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D905922786E07E009B0782 /* Photo.swift */; };
+		B0D905952786E70D009B0782 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D905942786E70D009B0782 /* Closures.swift */; };
+		B0D905982786E80C009B0782 /* FoxyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D905972786E80C009B0782 /* FoxyError.swift */; };
 		B0E458232782202600D5E780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E458222782202600D5E780 /* AppDelegate.swift */; };
 		B0E4582D2782202600D5E780 /* Foxy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */; };
 		B0E4582F2782202800D5E780 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E4582E2782202800D5E780 /* Assets.xcassets */; };
 		B0E458322782202800D5E780 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E458302782202800D5E780 /* LaunchScreen.storyboard */; };
+		B0E67348278846C00057F412 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E67347278846C00057F412 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.debug.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.debug.xcconfig"; sourceTree = "<group>"; };
 		370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D9056627822119009B0782 /* FlickerSizePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerSizePhoto.swift; sourceTree = "<group>"; };
-		B0D9056727822119009B0782 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerPhotoRequest.swift; sourceTree = "<group>"; };
 		B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCaseGetPopularMethods.swift; sourceTree = "<group>"; };
 		B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInterestingnessResponse.swift; sourceTree = "<group>"; };
@@ -47,12 +50,17 @@
 		B0D9057F27822121009B0782 /* CGSize+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
 		B0D905832782212C009B0782 /* RootComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
 		B0D90586278221FB009B0782 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		B0D9058E2786DD0F009B0782 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B0D905922786E07E009B0782 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		B0D905942786E70D009B0782 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		B0D905972786E80C009B0782 /* FoxyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoxyError.swift; sourceTree = "<group>"; };
 		B0E4581F2782202600D5E780 /* Foxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E458222782202600D5E780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E4582C2782202600D5E780 /* Foxy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foxy.xcdatamodel; sourceTree = "<group>"; };
 		B0E4582E2782202800D5E780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0E458312782202800D5E780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0E458332782202800D5E780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E67347278846C00057F412 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F1C2D5BD863CA441C79587FE /* Pods-Foxy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.release.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				B0D9056627822119009B0782 /* FlickerSizePhoto.swift */,
-				B0D9056727822119009B0782 /* Photo.swift */,
 				B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */,
 				B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */,
 				B0D9056A27822119009B0782 /* GetInterestingnessResponse.swift */,
@@ -132,6 +139,7 @@
 				B0D9057D27822121009B0782 /* UIView+Extension.swift */,
 				B0D9057E27822121009B0782 /* String+Extension.swift */,
 				B0D9057F27822121009B0782 /* CGSize+Extension.swift */,
+				B0D905942786E70D009B0782 /* Closures.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				B0D90586278221FB009B0782 /* NeedleGenerated.swift */,
 				B0D905832782212C009B0782 /* RootComponent.swift */,
 				B0D9056427822119009B0782 /* MainScreen */,
+				B0D905962786E7F9009B0782 /* utils */,
 				B0D9057C27822121009B0782 /* extensions */,
 			);
 			path = Code;
@@ -155,6 +164,33 @@
 				B0E4582E2782202800D5E780 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0D905902786E057009B0782 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B0D9058E2786DD0F009B0782 /* CoreDataManager.swift */,
+				B0D905912786E067009B0782 /* models */,
+				B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B0D905912786E067009B0782 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B0D905922786E07E009B0782 /* Photo.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		B0D905962786E7F9009B0782 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B0D905972786E80C009B0782 /* FoxyError.swift */,
+				B0E67347278846C00057F412 /* NetworkManager.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		B0E458162782202600D5E780 = {
@@ -178,10 +214,10 @@
 		B0E458212782202600D5E780 /* Foxy */ = {
 			isa = PBXGroup;
 			children = (
+				B0D905902786E057009B0782 /* CoreData */,
 				B0D90588278229BF009B0782 /* Code */,
 				B0D90589278229C5009B0782 /* Resources */,
 				B0E458332782202800D5E780 /* Info.plist */,
-				B0E4582B2782202600D5E780 /* Foxy.xcdatamodeld */,
 			);
 			path = Foxy;
 			sourceTree = "<group>";
@@ -287,7 +323,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export SOURCEKIT_LOGGING=0 && needle generate Foxy/NeedleGenerated.swift Foxy/\n";
+			shellScript = "export SOURCEKIT_LOGGING=0 && needle generate Foxy/Code/NeedleGenerated.swift Foxy/\n";
 		};
 		F9EAA7432D7EF3776E414112 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -321,15 +357,19 @@
 				B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */,
 				B0D9058027822121009B0782 /* UIView+Extension.swift in Sources */,
 				B0D9057927822119009B0782 /* MainScreenViewModel.swift in Sources */,
+				B0E67348278846C00057F412 /* NetworkManager.swift in Sources */,
 				B0D90587278221FB009B0782 /* NeedleGenerated.swift in Sources */,
 				B0D9057A27822119009B0782 /* ImageCell.swift in Sources */,
-				B0D9057327822119009B0782 /* Photo.swift in Sources */,
+				B0D905932786E07E009B0782 /* Photo.swift in Sources */,
+				B0D9058F2786DD0F009B0782 /* CoreDataManager.swift in Sources */,
 				B0D905842782212C009B0782 /* RootComponent.swift in Sources */,
+				B0D905952786E70D009B0782 /* Closures.swift in Sources */,
 				B0D9057627822119009B0782 /* GetInterestingnessResponse.swift in Sources */,
 				B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */,
 				B0D9057727822119009B0782 /* MainScreenComponent.swift in Sources */,
 				B0D9058127822121009B0782 /* String+Extension.swift in Sources */,
 				B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */,
+				B0D905982786E80C009B0782 /* FoxyError.swift in Sources */,
 				B0E458232782202600D5E780 /* AppDelegate.swift in Sources */,
 				B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */,
 				B0E4582D2782202600D5E780 /* Foxy.xcdatamodeld in Sources */,

@@ -16,6 +16,8 @@ protocol MainScreenViewModel {
     func start()
     
     func didTapFavoriteButton()
+    
+    func didTapTrashButton()
 }
 
 final class MainScreenViewModelImpl {
@@ -42,12 +44,14 @@ final class MainScreenViewModelImpl {
                 return
             }
             
-            let mainImageViewModel = ImageCell.Model(image: photo.image,
-                                                     isImageFavorite: photo.isFavorite)
-            let config = MainScreenViewConfig(mainImageViewModel: mainImageViewModel,
-                                              timerLabelText: .empty,
-                                              infoTexts: [photo.data.title])
-            self.viewState = .content(config: config)
+            if let image = photo.image {
+                let mainImageViewModel = ImageCell.Model(image: image,
+                                                         isImageFavorite: photo.isFavorite)
+                let config = MainScreenViewConfig(mainImageViewModel: mainImageViewModel,
+                                                  timerLabelText: .empty,
+                                                  infoTexts: [photo.title])
+                self.viewState = .content(config: config)
+            }
         })
     }
 }
@@ -68,7 +72,10 @@ extension MainScreenViewModelImpl: MainScreenViewModel {
             return
         }
         
-        model.didTapFavoriteButton(for: currentPhoto.data.id)
+        model.didTapFavoriteButton(for: currentPhoto.id)
     }
     
+    func didTapTrashButton() {
+        model.didTapTrashButton()
+    }
 }

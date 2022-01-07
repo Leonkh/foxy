@@ -10,6 +10,14 @@ import NeedleFoundation
 
 final class RootComponent: BootstrapComponent {
     
+    var coreDataManager: CoreDataManager {
+        return shared { CoreDataManagerImpl() }
+    }
+    
+    var networkManager: NetworkManager {
+        return shared { NetworkManagerImpl() }
+    }
+    
     var mainScreenDIComponent: MainScreenComponent {
         return MainScreenComponent(parent: self)
     }
