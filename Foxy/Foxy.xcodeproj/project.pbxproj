@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1289FC17F2423456278AB1BC /* Pods_Foxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */; };
+		B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */; };
 		B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056627822119009B0782 /* FlickerSizePhoto.swift */; };
 		B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */; };
 		B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.debug.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.debug.xcconfig"; sourceTree = "<group>"; };
 		370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupNotificationsManager.swift; sourceTree = "<group>"; };
 		B0D9056627822119009B0782 /* FlickerSizePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerSizePhoto.swift; sourceTree = "<group>"; };
 		B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerPhotoRequest.swift; sourceTree = "<group>"; };
 		B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCaseGetPopularMethods.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				B0D905972786E80C009B0782 /* FoxyError.swift */,
 				B0E67347278846C00057F412 /* NetworkManager.swift */,
+				B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				B0D9057727822119009B0782 /* MainScreenComponent.swift in Sources */,
 				B0D9058127822121009B0782 /* String+Extension.swift in Sources */,
 				B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */,
+				B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */,
 				B0D905982786E80C009B0782 /* FoxyError.swift in Sources */,
 				B0E458232782202600D5E780 /* AppDelegate.swift in Sources */,
 				B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */,

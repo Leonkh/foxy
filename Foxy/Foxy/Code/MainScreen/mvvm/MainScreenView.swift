@@ -39,6 +39,7 @@ final class MainScreenViewController: UIViewController {
     // MARK: - Properties
     
     private let viewModel: MainScreenViewModel
+    private let popupNotificationsManager: PopupNotificationsManager
     private var cancellables = [AnyCancellable]()
     private var config: MainScreenViewConfig?
     
@@ -72,10 +73,12 @@ final class MainScreenViewController: UIViewController {
     }()
     
     
-   // MARK: - Init
+    // MARK: - Init
     
-    init(viewModel: MainScreenViewModel) {
+    init(viewModel: MainScreenViewModel,
+         popupNotificationsManager: PopupNotificationsManager) {
         self.viewModel = viewModel
+        self.popupNotificationsManager = popupNotificationsManager
         super.init(nibName: nil, bundle: nil)
         
         bindViewModel()
@@ -119,6 +122,14 @@ final class MainScreenViewController: UIViewController {
             }
             
             self.apply(state: state)
+        }.store(in: &cancellables)
+        
+        viewModel.notificationPublisher.sink { [weak self] notification in
+            guard let self = self else {
+                return
+            }
+            
+            self.popupNotificationsManager.displayTopPopUp(notification: notification)
         }.store(in: &cancellables)
     }
     
@@ -164,6 +175,7 @@ extension MainScreenViewController: UITableViewDataSource {
         guard let config = config else {
             return .zero
         }
+        
         let timerLabelTextRow = config.timerLabelText == .empty ? .zero : 1
         
         return config.infoTexts.count + timerLabelTextRow + 1
@@ -198,6 +210,5 @@ extension MainScreenViewController: MainImageViewDelegate {
     func didTapFavoriteButton() {
         viewModel.didTapFavoriteButton()
     }
-    
     
 }

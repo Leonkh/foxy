@@ -27,6 +27,9 @@ private class MainScreenDependency03fb5ba1afe26d2624c0BaseProvider: MainScreenDe
     var networkManager: NetworkManager {
         return rootComponent.networkManager
     }
+    var popupNotificationsManager: PopupNotificationsManager {
+        return rootComponent.popupNotificationsManager
+    }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
         self.rootComponent = rootComponent

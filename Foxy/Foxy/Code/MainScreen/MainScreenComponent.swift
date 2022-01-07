@@ -11,6 +11,7 @@ import NeedleFoundation
 protocol MainScreenDependency: Dependency {
     var coreDataManager: CoreDataManager { get }
     var networkManager: NetworkManager { get }
+    var popupNotificationsManager: PopupNotificationsManager { get }
 }
 
 final class MainScreenComponent: Component<MainScreenDependency> {
@@ -25,7 +26,8 @@ final class MainScreenComponent: Component<MainScreenDependency> {
     }
     
     var mainScreenViewController: MainScreenView {
-        return MainScreenViewController(viewModel: mainScreenViewModel)
+        return MainScreenViewController(viewModel: mainScreenViewModel,
+                                        popupNotificationsManager: dependency.popupNotificationsManager)
     }
     
 }

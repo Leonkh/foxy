@@ -18,6 +18,10 @@ final class RootComponent: BootstrapComponent {
         return shared { NetworkManagerImpl() }
     }
     
+    var popupNotificationsManager: PopupNotificationsManager {
+        return shared { PopupNotificationsManagerImpl() }
+    }
+    
     var mainScreenDIComponent: MainScreenComponent {
         return MainScreenComponent(parent: self)
     }

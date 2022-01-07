@@ -26,7 +26,11 @@ final class NetworkManagerImpl {
     // MARK: - Properties
     
     private lazy var monitor = NWPathMonitor()
-    private var delegates = [() -> NetworkManagerDelegate?]()
+    private var delegates = [() -> NetworkManagerDelegate?]() {
+        didSet {
+            print()
+        }
+    }
     
     
     // MARK: - Init
@@ -42,12 +46,14 @@ final class NetworkManagerImpl {
             guard let self = self else {
                 return
             }
+            
             let status: NetworkStatus
             if path.status == .satisfied {
                 status = .enabled
             } else {
                 status = .disabled
             }
+            
             self.delegates.forEach { delegate in
                 delegate()?.didChangeNetworkStatus(to: status)
             }

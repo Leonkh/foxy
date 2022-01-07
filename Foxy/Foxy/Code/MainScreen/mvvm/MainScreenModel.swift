@@ -29,8 +29,8 @@ final class MainScreenModelImpl {
     
     @OpenCombine.Published private var randomPhoto: Photo?
     @OpenCombine.Published private var currentNetworkStatus: NetworkStatus = .enabled
-    private var cancellables: [OpenCombine.AnyCancellable?] = []
-    private var timerToken: OpenCombine.AnyCancellable?
+    private var cancellables: [AnyCancellable] = []
+    private var timerToken: AnyCancellable?
     
     private var data: GetInterestingnessResponse?
     private let coreDataManager: CoreDataManager
@@ -40,6 +40,8 @@ final class MainScreenModelImpl {
          networkManager: NetworkManager) {
         self.coreDataManager = coreDataManager
         self.networkManager = networkManager
+        
+        self.networkManager.addDelegate(self)
     }
     
     private var urlString: String {
@@ -51,7 +53,7 @@ final class MainScreenModelImpl {
             return
         }
         
-        let downloadListTask = URLSession.shared.ocombine
+        URLSession.shared.ocombine
             .dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: GetInterestingnessResponse.self, decoder: JSONDecoder())
@@ -67,9 +69,7 @@ final class MainScreenModelImpl {
                   receiveValue: { [weak self] response in
                 let randomPhoto = response.photos.photo.randomElement()
                 self?.downloadSinglePhoto(randomPhoto)
-            })
-        
-        cancellables.append(downloadListTask)
+            }).store(in: &cancellables)
     }
     
     private func downloadSinglePhoto(_ photo: GetInterestingnessResponsePhoto?) {
@@ -84,7 +84,7 @@ final class MainScreenModelImpl {
             return
         }
         
-        let downloadSinglePhotoTask = URLSession.shared.ocombine
+        URLSession.shared.ocombine
             .dataTaskPublisher(for: url)
             .map(\.data)
             .receive(on: RunLoop.main.ocombine)
@@ -102,16 +102,16 @@ final class MainScreenModelImpl {
                 
                 if UIImage(data: value) != nil {
                     let newPhoto = Photo(id: photo.id,
-                                             owner: photo.owner,
-                                             secret: photo.secret,
-                                             server: photo.server,
-                                             farm: photo.farm,
-                                             title: photo.title,
-                                             ispublic: photo.ispublic,
-                                             isfriend: photo.isfriend,
-                                             isfamily: photo.isfamily,
-                                             imageData: value,
-                                             isFavorite: false)
+                                         owner: photo.owner,
+                                         secret: photo.secret,
+                                         server: photo.server,
+                                         farm: photo.farm,
+                                         title: photo.title,
+                                         ispublic: photo.ispublic,
+                                         isfriend: photo.isfriend,
+                                         isfamily: photo.isfamily,
+                                         imageData: value,
+                                         isFavorite: false)
                     self.randomPhoto = newPhoto
                     self.coreDataManager.savePhoto(newPhoto) { result in
                         if case .failure(let error) = result {
@@ -123,8 +123,7 @@ final class MainScreenModelImpl {
                 } else {
                     print("fail with data = \(value)")
                 }
-            })
-        cancellables.append(downloadSinglePhotoTask)
+            }).store(in: &cancellables)
     }
     
     private func loadPhotoListFromCache() {
@@ -156,8 +155,8 @@ extension MainScreenModelImpl: MainScreenModel {
     func start() {
         cancellables.removeAll()
         timerToken = Timer.publish(every: Constants.timeIntervalForUpdatePhoto,
-                                    on: .main,
-                                    in: .default)
+                                   on: .main,
+                                   in: .default)
             .autoconnect()
             .receive(on: DispatchQueue.main.ocombine)
             .sink(receiveValue: { [weak self] value in
@@ -173,7 +172,6 @@ extension MainScreenModelImpl: MainScreenModel {
                 case .disabled:
                     self.loadPhotoListFromCache()
                 }
-                
             })
     }
     
@@ -196,6 +194,10 @@ extension MainScreenModelImpl: NetworkManagerDelegate {
     // MARK: - NetworkManagerDelegate
     
     func didChangeNetworkStatus(to newStatus: NetworkStatus) {
+        guard currentNetworkStatus != newStatus else {
+            return
+        }
+        
         currentNetworkStatus = newStatus
     }
     
