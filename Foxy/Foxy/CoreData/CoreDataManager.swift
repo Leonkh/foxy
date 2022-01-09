@@ -17,6 +17,9 @@ protocol CoreDataManager {
     
     func deleteAllData(completion: @escaping ClosureResult<Void>)
     
+    func togglePhotoIsFavorite(photoId: String,
+                               completion: @escaping ClosureResult<Bool>)
+    
 }
 
 final class CoreDataManagerImpl {
@@ -32,7 +35,7 @@ final class CoreDataManagerImpl {
     private lazy var backgroundContext: NSManagedObjectContext = persistentContainer.newBackgroundContext()
     
     private lazy var photoEntityDescription: NSEntityDescription? = NSEntityDescription.entity(forEntityName: PhotoCoreDataModel.entityName,
-                                          in: backgroundContext)
+                                                                                               in: backgroundContext)
     
 }
 
@@ -40,25 +43,37 @@ extension CoreDataManagerImpl: CoreDataManager {
     
     func loadPhotos(completion: @escaping ClosureResult<[Photo]>) {
         let fetchRequest = NSFetchRequest<PhotoCoreDataModel>(entityName: PhotoCoreDataModel.entityName)
-        do {
-            let results = try backgroundContext.fetch(fetchRequest)
-            completion(.success(results.map { Photo(coreDataModel: $0)} ))
-            debugPrint("\(results.count) photos loaded from core data")
-        } catch {
-            completion(.failure(FoxyError(error: error as NSError)))
+        backgroundContext.perform { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            do {
+                let results = try self.backgroundContext.fetch(fetchRequest)
+                completion(.success(results.map { Photo(coreDataModel: $0)} ))
+                debugPrint("\(results.count) photos loaded from core data")
+            } catch {
+                completion(.failure(FoxyError(error: error as NSError)))
+            }
         }
     }
     
     func savePhoto(_ photo: Photo,
                    completion: @escaping ClosureResult<Void>) {
-        do {
-            createPhotoCoreDataModel(from: photo)
-            print("backgroundContext.hasChanges = \(backgroundContext.hasChanges)")
-            try backgroundContext.save()
-            completion(.success(()))
-            debugPrint("photo with id \(photo.id) successfully saved")
-        } catch {
-            completion(.failure(FoxyError(error: error as NSError)))
+        backgroundContext.perform { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            do {
+                self.createPhotoCoreDataModel(from: photo)
+                print("backgroundContext.hasChanges = \(self.backgroundContext.hasChanges)")
+                try self.backgroundContext.save()
+                completion(.success(()))
+                debugPrint("photo with id \(photo.id) successfully saved")
+            } catch {
+                completion(.failure(FoxyError(error: error as NSError)))
+            }
         }
     }
     
@@ -86,16 +101,48 @@ extension CoreDataManagerImpl: CoreDataManager {
     
     func deleteAllData(completion: @escaping ClosureResult<Void>) {
         let fetchRequest = NSFetchRequest<PhotoCoreDataModel>(entityName: PhotoCoreDataModel.entityName)
-        do {
-            let objects = try backgroundContext.fetch(fetchRequest)
-            objects.forEach {
-                backgroundContext.delete($0)
+        backgroundContext.perform { [weak self] in
+            guard let self = self else {
+                return
             }
-            try backgroundContext.save()
-            debugPrint("all core data (count = \(objects.count) ) succesfully deleted")
-            completion(.success(()))
-        } catch {
-            completion(.failure(FoxyError(error: error as NSError)))
+            
+            do {
+                let objects = try self.backgroundContext.fetch(fetchRequest)
+                objects.forEach {
+                    self.backgroundContext.delete($0)
+                }
+                try self.backgroundContext.save()
+                debugPrint("all core data (count = \(objects.count) ) succesfully deleted")
+                completion(.success(()))
+            } catch {
+                completion(.failure(FoxyError(error: error as NSError)))
+            }
+        }
+    }
+    
+    func togglePhotoIsFavorite(photoId: String,
+                               completion: @escaping ClosureResult<Bool>) {
+        let fetchRequest = NSFetchRequest<PhotoCoreDataModel>(entityName: PhotoCoreDataModel.entityName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", photoId)
+        fetchRequest.fetchLimit = 1
+        backgroundContext.perform { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            do {
+                guard let object = try self.backgroundContext.fetch(fetchRequest).first else {
+                    completion(.failure(FoxyError(userMessage: "Неизвестная ошибка",
+                                                  logMessage: "Не найден объект по запросу \(fetchRequest)")))
+                    return
+                }
+                
+                object.isFavorite.toggle()
+                try self.backgroundContext.save()
+                completion(.success((object.isFavorite)))
+            } catch {
+                completion(.failure(FoxyError(error: error as NSError)))
+            }
         }
     }
 }

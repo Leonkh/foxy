@@ -33,6 +33,13 @@ final class MainScreenViewController: UIViewController {
     private enum Constants {
         static let backgroundColor = UIColor.white
         static let refreshControlTintColor = UIColor.black
+        static let barTintColor = UIColor.white
+        static let titleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.black
+        ]
+        static let favoritesTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.black
+        ]
     }
     
     
@@ -69,6 +76,21 @@ final class MainScreenViewController: UIViewController {
         let button = UIBarButtonItem(barButtonSystemItem: .trash,
                                      target: self,
                                      action: #selector(didTapTrashButton))
+        return button
+    }()
+    
+    private lazy var favoritesButton: UIBarButtonItem = {
+        let favoritesButton = UIButton(type: .system)
+        let attrText = NSMutableAttributedString(string: "Избранное",
+                                                 attributes: Constants.favoritesTextAttributes)
+        if let forwardImage = UIImage(named: "forwardIcon") {
+            attrText.appendImage(forwardImage, with: 17)
+        }
+        favoritesButton.setAttributedTitle(attrText, for: .normal)
+        favoritesButton.addTarget(self,
+                                  action: #selector(didTapNavBarFavoriteButton),
+                                  for: .touchUpInside)
+        let button = UIBarButtonItem(customView: favoritesButton)
         return button
     }()
     
@@ -111,8 +133,11 @@ final class MainScreenViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.leftBarButtonItem = trashButton
+        navigationItem.rightBarButtonItem = favoritesButton
+        navigationController?.navigationBar.barTintColor = Constants.barTintColor
+        title = "Главный экран"
+        navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
     }
     
     private func bindViewModel() {
@@ -159,6 +184,10 @@ final class MainScreenViewController: UIViewController {
     
     @objc private func didTapTrashButton() {
         viewModel.didTapTrashButton()
+    }
+    
+    @objc private func didTapNavBarFavoriteButton() {
+        print("didTapNavBarFavoriteButton")
     }
     
 }

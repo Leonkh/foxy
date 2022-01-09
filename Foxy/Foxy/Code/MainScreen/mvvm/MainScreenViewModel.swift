@@ -47,6 +47,7 @@ final class MainScreenViewModelImpl {
             }
             
             if let image = photo.image {
+                self.currentMainPhoto = photo
                 let mainImageViewModel = ImageCell.Model(image: image,
                                                          isImageFavorite: photo.isFavorite)
                 let config = MainScreenViewConfig(mainImageViewModel: mainImageViewModel,

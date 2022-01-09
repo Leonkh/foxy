@@ -180,7 +180,19 @@ extension MainScreenModelImpl: MainScreenModel {
     }
     
     func didTapFavoriteButton(for photoId: String) {
-        
+        coreDataManager.togglePhotoIsFavorite(photoId: photoId) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let isFavorite):
+                print("photo with id \(photoId) success toggled to \(isFavorite)")
+            case .failure(let error):
+                debugPrint(error)
+            }
+            
+        }
     }
     
     func didTapTrashButton() {

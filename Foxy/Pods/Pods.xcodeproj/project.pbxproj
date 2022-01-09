@@ -459,7 +459,7 @@
 		5CEDF44C8FA774EFE22FC2F4C2DEF787 /* ImmediateScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImmediateScheduler.swift; path = Sources/OpenCombine/ImmediateScheduler.swift; sourceTree = "<group>"; };
 		5DCD0B71778939C84915C6D3EAF73F27 /* PinLayout+Coordinates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PinLayout+Coordinates.swift"; path = "Sources/Impl/PinLayout+Coordinates.swift"; sourceTree = "<group>"; };
 		5F043FC59E0A918A50113EAE05E72A72 /* Violations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Violations.swift; path = Sources/OpenCombineFoundation/Helpers/Violations.swift; sourceTree = "<group>"; };
-		5F0919B37A0E38415775DA793561872C /* Pods-Foxy */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Foxy"; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0919B37A0E38415775DA793561872C /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2898A8E39C1CBF4A99591CB27D3210 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		5FCB345C0CF3FF561D5E9CBB6574C071 /* UIColor+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Utils.swift"; path = "Source/Extensions/UIColor+Utils.swift"; sourceTree = "<group>"; };
 		606C9697E2B8E698247C66A5ABE5C957 /* NeedleFoundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NeedleFoundation-umbrella.h"; sourceTree = "<group>"; };
@@ -544,7 +544,7 @@
 		9C5CF198C5BACD46C43337D883C79ED5 /* SubjectSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubjectSubscriber.swift; path = Sources/OpenCombine/Helpers/SubjectSubscriber.swift; sourceTree = "<group>"; };
 		9D3BFABEEDB08A752DF00878A1A9077B /* Publishers.Sequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Publishers.Sequence.swift; path = Sources/OpenCombine/Publishers/Publishers.Sequence.swift; sourceTree = "<group>"; };
 		9D491F4798236D79D178666935B818F9 /* SwiftEntryKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftEntryKit-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E0863A94150D951E8E14A5C17916172 /* Publishers.Autoconnect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Publishers.Autoconnect.swift; path = Sources/OpenCombine/Publishers/Publishers.Autoconnect.swift; sourceTree = "<group>"; };
 		9E218001E77B3BAB9028D6DA5116A8E3 /* EKAlertMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKAlertMessage.swift; path = Source/Model/EKAlertMessage.swift; sourceTree = "<group>"; };
 		A1EDB2F7C66434A64D4DB9CBAF156684 /* NeedleFoundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NeedleFoundation-dummy.m"; sourceTree = "<group>"; };
@@ -789,7 +789,6 @@
 				B2C8BA14B8C1D5F181B2A44C8343BC6D /* UILayoutSupport+Extensions.swift */,
 				E5FD95BF320D85422D918342B74674C8 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -824,7 +823,6 @@
 				8367F51108844818D873988C1238A533 /* UIView+PinLayout.swift */,
 				227522D8DDC1B2458450954268B5FFE8 /* Support Files */,
 			);
-			name = PinLayout;
 			path = PinLayout;
 			sourceTree = "<group>";
 		};
@@ -843,7 +841,6 @@
 				5F043FC59E0A918A50113EAE05E72A72 /* Violations.swift */,
 				FBE31EFB351DC8958D5E5625D30FF622 /* Support Files */,
 			);
-			name = OpenCombineFoundation;
 			path = OpenCombineFoundation;
 			sourceTree = "<group>";
 		};
@@ -883,7 +880,6 @@
 				EDC48A87F24D7F236441C19ADC19B0E3 /* DispatchQueue+Scheduler.swift */,
 				1910694F179C5729718323103C887960 /* Support Files */,
 			);
-			name = OpenCombineDispatch;
 			path = OpenCombineDispatch;
 			sourceTree = "<group>";
 		};
@@ -913,7 +909,7 @@
 				011213BBA33E9EE219F9BF94D16D7745 /* OpenCombineDispatch */,
 				FDB4D0BBF0A26BCC8EDA4E97D745A05C /* OpenCombineFoundation */,
 				49A1B30EADC8BCAF734D81E271752CDD /* PinLayout */,
-				5F0919B37A0E38415775DA793561872C /* Pods-Foxy */,
+				5F0919B37A0E38415775DA793561872C /* Pods_Foxy.framework */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 				DA5F7E5AA5A762E4504855EAF3216C8A /* SwiftEntryKit */,
 			);
@@ -1039,7 +1035,6 @@
 				BD350656D6C52D5EEEAC5B7F1A95A491 /* UIViewArray+QuickLayout.swift */,
 				FA2A148FD0E0A3F745620664A7FB41BF /* Support Files */,
 			);
-			name = SwiftEntryKit;
 			path = SwiftEntryKit;
 			sourceTree = "<group>";
 		};
@@ -1056,7 +1051,6 @@
 				E6F37A6F4FF5620D6E32180BA4DE1CA4 /* PluginizedScopeLifecycle.swift */,
 				F91D285A00081E9B6389E22E15048698 /* Support Files */,
 			);
-			name = NeedleFoundation;
 			path = NeedleFoundation;
 			sourceTree = "<group>";
 		};
@@ -1189,7 +1183,6 @@
 				DBCEA16B7F9112000F6983A33E2414AB /* Violations.swift */,
 				8C0E2549DFD43F861C899772B980F750 /* Support Files */,
 			);
-			name = OpenCombine;
 			path = OpenCombine;
 			sourceTree = "<group>";
 		};
@@ -1441,7 +1434,7 @@
 			);
 			name = "Pods-Foxy";
 			productName = Pods_Foxy;
-			productReference = 5F0919B37A0E38415775DA793561872C /* Pods-Foxy */;
+			productReference = 5F0919B37A0E38415775DA793561872C /* Pods_Foxy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FEA6FF0588A91CCD972EDCD698B85647 /* SwiftEntryKit */ = {
@@ -1942,7 +1935,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Foxy/Pods-Foxy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1957,6 +1950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2120,7 +2114,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2218,7 +2212,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Foxy/Pods-Foxy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2233,6 +2227,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2531,7 +2526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
