@@ -49,6 +49,7 @@ final class MainScreenViewController: UIViewController {
     private let popupNotificationsManager: PopupNotificationsManager
     private var cancellables = [AnyCancellable]()
     private var config: MainScreenViewConfig?
+    private let favoritesView: FavoritesScreenView
     
     
     // MARK: - Views
@@ -98,9 +99,11 @@ final class MainScreenViewController: UIViewController {
     // MARK: - Init
     
     init(viewModel: MainScreenViewModel,
-         popupNotificationsManager: PopupNotificationsManager) {
+         popupNotificationsManager: PopupNotificationsManager,
+         favoritesView: FavoritesScreenView) {
         self.viewModel = viewModel
         self.popupNotificationsManager = popupNotificationsManager
+        self.favoritesView = favoritesView
         super.init(nibName: nil, bundle: nil)
         
         bindViewModel()
@@ -188,6 +191,7 @@ final class MainScreenViewController: UIViewController {
     
     @objc private func didTapNavBarFavoriteButton() {
         print("didTapNavBarFavoriteButton")
+        navigationController?.pushViewController(favoritesView, animated: true)
     }
     
 }
@@ -232,9 +236,9 @@ extension MainScreenViewController: UITableViewDataSource {
     
 }
 
-extension MainScreenViewController: MainImageViewDelegate {
+extension MainScreenViewController: ImageCellDelegate {
     
-    // MARK: - MainImageViewDelegate
+    // MARK: - ImageCellDelegate
     
     func didTapFavoriteButton() {
         viewModel.didTapFavoriteButton()

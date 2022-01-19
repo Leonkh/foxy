@@ -22,8 +22,8 @@ final class RootComponent: BootstrapComponent {
         return shared { PopupNotificationsManagerImpl() }
     }
     
-    var mainScreenDIComponent: MainScreenComponent {
-        return MainScreenComponent(parent: self)
+    var favoritesScreenDIComponent: FavoritesScreenComponent {
+        return FavoritesScreenComponent(parent: self)
     }
     
 }

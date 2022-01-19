@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import PinLayout
 
-protocol MainImageViewDelegate: AnyObject {
+protocol ImageCellDelegate: AnyObject {
     func didTapFavoriteButton()
 }
 
@@ -37,7 +37,7 @@ final class ImageCell: UITableViewCell {
     static var identifier: String {
         return String(describing: self)
     }
-    private weak var delegate: MainImageViewDelegate?
+    private weak var delegate: ImageCellDelegate?
     
     
     // MARK: - Views
@@ -98,7 +98,7 @@ final class ImageCell: UITableViewCell {
     
     // MARK: - Internal methods
     
-    func setup(model: Model, delegate: MainImageViewDelegate?) {
+    func setup(model: Model, delegate: ImageCellDelegate?) {
         self.delegate = delegate
         photoView.image = model.image
         

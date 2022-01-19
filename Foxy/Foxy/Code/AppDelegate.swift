@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     
     private lazy var rootComponent = RootComponent()
-    private lazy var mainScreenVC = rootComponent.mainScreenDIComponent.mainScreenViewController
+    private lazy var mainScreenVC = rootComponent.favoritesScreenDIComponent.mainScreenDIComponent.mainScreenViewController
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

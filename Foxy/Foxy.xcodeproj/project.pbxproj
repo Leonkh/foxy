@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1289FC17F2423456278AB1BC /* Pods_Foxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */; };
+		B002B912279859700031BCAA /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B002B911279859700031BCAA /* Collection+Extension.swift */; };
 		B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */; };
 		B047E85D278AF709003891E9 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047E85C278AF709003891E9 /* NSMutableAttributedString+Extension.swift */; };
+		B05D8EAA278B012B0050B122 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EA9278B012B0050B122 /* MainScreenRouter.swift */; };
+		B05D8EAF278B01F30050B122 /* FavoritesScreenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EAE278B01F30050B122 /* FavoritesScreenComponent.swift */; };
+		B05D8EB1278B1F110050B122 /* FavoritesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EB0278B1F110050B122 /* FavoritesScreenView.swift */; };
+		B05D8EB3278B1F500050B122 /* FavoritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EB2278B1F500050B122 /* FavoritesScreenViewModel.swift */; };
+		B05D8EB5278B1F7C0050B122 /* FavoritesScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EB4278B1F7C0050B122 /* FavoritesScreenModel.swift */; };
 		B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056627822119009B0782 /* FlickerSizePhoto.swift */; };
 		B0D9057427822119009B0782 /* FlickerPhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */; };
 		B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */; };
@@ -38,8 +44,14 @@
 /* Begin PBXFileReference section */
 		351238C422480948CFE0E1B8 /* Pods-Foxy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foxy.debug.xcconfig"; path = "Target Support Files/Pods-Foxy/Pods-Foxy.debug.xcconfig"; sourceTree = "<group>"; };
 		370C3EB8C5600B2BFD965038 /* Pods_Foxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B002B911279859700031BCAA /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupNotificationsManager.swift; sourceTree = "<group>"; };
 		B047E85C278AF709003891E9 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		B05D8EA9278B012B0050B122 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		B05D8EAE278B01F30050B122 /* FavoritesScreenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenComponent.swift; sourceTree = "<group>"; };
+		B05D8EB0278B1F110050B122 /* FavoritesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenView.swift; sourceTree = "<group>"; };
+		B05D8EB2278B1F500050B122 /* FavoritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenViewModel.swift; sourceTree = "<group>"; };
+		B05D8EB4278B1F7C0050B122 /* FavoritesScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenModel.swift; sourceTree = "<group>"; };
 		B0D9056627822119009B0782 /* FlickerSizePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerSizePhoto.swift; sourceTree = "<group>"; };
 		B0D9056827822119009B0782 /* FlickerPhotoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickerPhotoRequest.swift; sourceTree = "<group>"; };
 		B0D9056927822119009B0782 /* ErrorCaseGetPopularMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCaseGetPopularMethods.swift; sourceTree = "<group>"; };
@@ -97,6 +109,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B05D8EAB278B01B00050B122 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B05D8EAC278B01B90050B122 /* FavoritesScreen */,
+				B0D9056427822119009B0782 /* MainScreen */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B05D8EAC278B01B90050B122 /* FavoritesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B05D8EAE278B01F30050B122 /* FavoritesScreenComponent.swift */,
+				B05D8EAD278B01D10050B122 /* mvvm */,
+			);
+			path = FavoritesScreen;
+			sourceTree = "<group>";
+		};
+		B05D8EAD278B01D10050B122 /* mvvm */ = {
+			isa = PBXGroup;
+			children = (
+				B05D8EB0278B1F110050B122 /* FavoritesScreenView.swift */,
+				B05D8EB2278B1F500050B122 /* FavoritesScreenViewModel.swift */,
+				B05D8EB4278B1F7C0050B122 /* FavoritesScreenModel.swift */,
+			);
+			path = mvvm;
+			sourceTree = "<group>";
+		};
 		B0D9056427822119009B0782 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +164,7 @@
 				B0D9057127822119009B0782 /* MainScreenView.swift */,
 				B0D9056E27822119009B0782 /* MainScreenViewModel.swift */,
 				B0D9056D27822119009B0782 /* MainScreenModel.swift */,
+				B05D8EA9278B012B0050B122 /* MainScreenRouter.swift */,
 				B0D9056F27822119009B0782 /* subviews */,
 			);
 			path = mvvm;
@@ -145,6 +186,7 @@
 				B0D9057F27822121009B0782 /* CGSize+Extension.swift */,
 				B0D905942786E70D009B0782 /* Closures.swift */,
 				B047E85C278AF709003891E9 /* NSMutableAttributedString+Extension.swift */,
+				B002B911279859700031BCAA /* Collection+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -155,7 +197,7 @@
 				B0E458222782202600D5E780 /* AppDelegate.swift */,
 				B0D90586278221FB009B0782 /* NeedleGenerated.swift */,
 				B0D905832782212C009B0782 /* RootComponent.swift */,
-				B0D9056427822119009B0782 /* MainScreen */,
+				B05D8EAB278B01B00050B122 /* views */,
 				B0D905962786E7F9009B0782 /* utils */,
 				B0D9057C27822121009B0782 /* extensions */,
 			);
@@ -235,12 +277,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0E458362782202800D5E780 /* Build configuration list for PBXNativeTarget "Foxy" */;
 			buildPhases = (
+				B0D905852782214F009B0782 /* ShellScript */,
 				F9EAA7432D7EF3776E414112 /* [CP] Check Pods Manifest.lock */,
 				B0E4581B2782202600D5E780 /* Sources */,
 				B0E4581C2782202600D5E780 /* Frameworks */,
 				B0E4581D2782202600D5E780 /* Resources */,
 				12C530D717530CA0F61ECDDD /* [CP] Embed Pods Frameworks */,
-				B0D905852782214F009B0782 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -365,6 +407,7 @@
 				B0D9057927822119009B0782 /* MainScreenViewModel.swift in Sources */,
 				B0E67348278846C00057F412 /* NetworkManager.swift in Sources */,
 				B0D90587278221FB009B0782 /* NeedleGenerated.swift in Sources */,
+				B05D8EB3278B1F500050B122 /* FavoritesScreenViewModel.swift in Sources */,
 				B0D9057A27822119009B0782 /* ImageCell.swift in Sources */,
 				B0D905932786E07E009B0782 /* Photo.swift in Sources */,
 				B0D9058F2786DD0F009B0782 /* CoreDataManager.swift in Sources */,
@@ -372,13 +415,18 @@
 				B0D905952786E70D009B0782 /* Closures.swift in Sources */,
 				B0D9057627822119009B0782 /* GetInterestingnessResponse.swift in Sources */,
 				B0D9057527822119009B0782 /* ErrorCaseGetPopularMethods.swift in Sources */,
+				B002B912279859700031BCAA /* Collection+Extension.swift in Sources */,
 				B0D9057727822119009B0782 /* MainScreenComponent.swift in Sources */,
 				B0D9058127822121009B0782 /* String+Extension.swift in Sources */,
 				B047E85D278AF709003891E9 /* NSMutableAttributedString+Extension.swift in Sources */,
+				B05D8EAA278B012B0050B122 /* MainScreenRouter.swift in Sources */,
+				B05D8EB5278B1F7C0050B122 /* FavoritesScreenModel.swift in Sources */,
+				B05D8EB1278B1F110050B122 /* FavoritesScreenView.swift in Sources */,
 				B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */,
 				B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */,
 				B0D905982786E80C009B0782 /* FoxyError.swift in Sources */,
 				B0E458232782202600D5E780 /* AppDelegate.swift in Sources */,
+				B05D8EAF278B01F30050B122 /* FavoritesScreenComponent.swift in Sources */,
 				B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */,
 				B0E4582D2782202600D5E780 /* Foxy.xcdatamodeld in Sources */,
 				B0D9057227822119009B0782 /* FlickerSizePhoto.swift in Sources */,

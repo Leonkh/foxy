@@ -26,10 +26,12 @@ final class MainScreenViewModelImpl {
     
     private var cancellables: [AnyCancellable] = []
     private let model: MainScreenModel
+//    private let router: MainScreenRouter
     private var currentMainPhoto: Photo?
     
     init(model: MainScreenModel) {
         self.model = model
+//        self.router = router
         
         bindModel()
     }
