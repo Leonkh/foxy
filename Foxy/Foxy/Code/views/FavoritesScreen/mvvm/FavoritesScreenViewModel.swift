@@ -13,6 +13,7 @@ protocol FavoritesScreenViewModel {
     var viewStatePublisher: OpenCombine.Published<FavoritesScreenViewState>.Publisher  { get }
     
     func start()
+    func didTapFavoriteButton(for photoId: String)
 }
 
 final class FavoritesScreenViewModelImpl {
@@ -39,8 +40,12 @@ final class FavoritesScreenViewModelImpl {
                     guard let image = photo?.image else {
                         return nil
                     }
+                    guard let id = photo?.id else {
+                        return nil
+                    }
                     
-                    return ImageCell.Model(image: image,
+                    return ImageCell.Model(id: id,
+                                           image: image,
                                            isImageFavorite: photo?.isFavorite ?? false)
                 }
                 self.viewState = .content(viewModel: FavoritesScreenViewConfig(imageCellModels: viewModels))
@@ -55,5 +60,9 @@ extension FavoritesScreenViewModelImpl: FavoritesScreenViewModel {
     
     func start() {
         model.start()
+    }
+    
+    func didTapFavoriteButton(for photoId: String) {
+        model.didTapFavoriteButton(for: photoId)
     }
 }

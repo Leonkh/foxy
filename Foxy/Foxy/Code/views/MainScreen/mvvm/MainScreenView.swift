@@ -17,8 +17,7 @@ enum MainScreenViewState: Hashable {
 
 struct MainScreenViewConfig: Hashable {
     let mainImageViewModel: ImageCell.Model
-    let timerLabelText: String
-    let infoTexts: [String]
+    let mainImageViewInfoModel: ImageInfoCell.Model
 }
 
 // MARK: - Protocol
@@ -56,6 +55,8 @@ final class MainScreenViewController: UIViewController {
     
     private lazy var timerLabel: UILabel = .create { label in
         label.textAlignment = .center
+        label.textColor = .black
+        label.backgroundColor = .white
         label.text = "test text"
     }
     
@@ -69,6 +70,7 @@ final class MainScreenViewController: UIViewController {
         tableView.refreshControl = refreshControl
         tableView.backgroundColor = Constants.backgroundColor
         tableView.register(ImageCell.self, forCellReuseIdentifier: ImageCell.identifier)
+        tableView.register(ImageInfoCell.self, forCellReuseIdentifier: ImageInfoCell.identifier)
         tableView.separatorStyle = .none
         tableView.dataSource = self
     }
@@ -118,6 +120,7 @@ final class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         setupLayout()
         setupNavBar()
         viewModel.start()
@@ -126,11 +129,16 @@ final class MainScreenViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupLayout() {
-        view.addSubview(tableView)
+        view.addSubviews([timerLabel, tableView])
+        
+        timerLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(view.safeAreaInsets.top)
-            make.bottom.equalToSuperview().offset(-view.safeAreaInsets.bottom)
+            make.top.equalTo(timerLabel.snp.bottom).offset(12)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
     }
@@ -159,6 +167,14 @@ final class MainScreenViewController: UIViewController {
             
             self.popupNotificationsManager.displayTopPopUp(notification: notification)
         }.store(in: &cancellables)
+        
+        viewModel.timeToRefreshPublisher.sink(receiveValue: { [weak self] time in
+            guard let self = self else {
+                return
+            }
+            
+            self.timerLabel.text = time
+        }).store(in: &cancellables)
     }
     
     private func apply(state: MainScreenViewState) {
@@ -205,13 +221,11 @@ extension MainScreenViewController: UITableViewDataSource {
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let config = config else {
+        guard config != nil else {
             return .zero
         }
         
-        let timerLabelTextRow = config.timerLabelText == .empty ? .zero : 1
-        
-        return config.infoTexts.count + timerLabelTextRow + 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -220,16 +234,19 @@ extension MainScreenViewController: UITableViewDataSource {
         }
         
         if indexPath.row == .zero {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = config.infoTexts.first
-            return cell
-        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageCell.identifier) as? ImageCell else {
                 return UITableViewCell()
             }
             
             cell.setup(model: config.mainImageViewModel,
                        delegate: self)
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageInfoCell.identifier) as? ImageInfoCell else {
+                return UITableViewCell()
+            }
+            
+            cell.setup(model: config.mainImageViewInfoModel)
             return cell
         }
     }
@@ -240,7 +257,7 @@ extension MainScreenViewController: ImageCellDelegate {
     
     // MARK: - ImageCellDelegate
     
-    func didTapFavoriteButton() {
+    func didTapFavoriteButton(forImage id: String) {
         viewModel.didTapFavoriteButton()
     }
     

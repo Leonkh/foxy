@@ -11,6 +11,7 @@
 		B002B912279859700031BCAA /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B002B911279859700031BCAA /* Collection+Extension.swift */; };
 		B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */; };
 		B047E85D278AF709003891E9 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047E85C278AF709003891E9 /* NSMutableAttributedString+Extension.swift */; };
+		B0581AFF27A6008D00FFE3BD /* ImageInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0581AFE27A6008D00FFE3BD /* ImageInfoCell.swift */; };
 		B05D8EAA278B012B0050B122 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EA9278B012B0050B122 /* MainScreenRouter.swift */; };
 		B05D8EAF278B01F30050B122 /* FavoritesScreenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EAE278B01F30050B122 /* FavoritesScreenComponent.swift */; };
 		B05D8EB1278B1F110050B122 /* FavoritesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D8EB0278B1F110050B122 /* FavoritesScreenView.swift */; };
@@ -47,6 +48,7 @@
 		B002B911279859700031BCAA /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		B047E85A2788CE90003891E9 /* PopupNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupNotificationsManager.swift; sourceTree = "<group>"; };
 		B047E85C278AF709003891E9 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		B0581AFE27A6008D00FFE3BD /* ImageInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfoCell.swift; sourceTree = "<group>"; };
 		B05D8EA9278B012B0050B122 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		B05D8EAE278B01F30050B122 /* FavoritesScreenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenComponent.swift; sourceTree = "<group>"; };
 		B05D8EB0278B1F110050B122 /* FavoritesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B0D9057027822119009B0782 /* ImageCell.swift */,
+				B0581AFE27A6008D00FFE3BD /* ImageInfoCell.swift */,
 			);
 			path = subviews;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				B0D9057B27822119009B0782 /* MainScreenView.swift in Sources */,
 				B047E85B2788CE90003891E9 /* PopupNotificationsManager.swift in Sources */,
 				B0D905982786E80C009B0782 /* FoxyError.swift in Sources */,
+				B0581AFF27A6008D00FFE3BD /* ImageInfoCell.swift in Sources */,
 				B0E458232782202600D5E780 /* AppDelegate.swift in Sources */,
 				B05D8EAF278B01F30050B122 /* FavoritesScreenComponent.swift in Sources */,
 				B0D9058227822121009B0782 /* CGSize+Extension.swift in Sources */,

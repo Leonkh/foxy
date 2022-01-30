@@ -10,7 +10,7 @@ import UIKit
 import PinLayout
 
 protocol ImageCellDelegate: AnyObject {
-    func didTapFavoriteButton()
+    func didTapFavoriteButton(forImage id: String)
 }
 
 final class ImageCell: UITableViewCell {
@@ -18,8 +18,9 @@ final class ImageCell: UITableViewCell {
     // MARK: - Model
     
     struct Model: Hashable {
+        let id: String
         let image: UIImage
-        let isImageFavorite: Bool
+        var isImageFavorite: Bool
     }
     
     // MARK: - Constants
@@ -30,6 +31,7 @@ final class ImageCell: UITableViewCell {
         static let backgroundColor = UIColor.clear
         static let favoritesButtonSize = CGSize(square: 44)
         static let favoritesButtonBackgroundColor = UIColor.white
+        static let favoritesButtonSelectedBackgroundColor = UIColor.red
     }
     
     // MARK: - Properties
@@ -38,6 +40,7 @@ final class ImageCell: UITableViewCell {
         return String(describing: self)
     }
     private weak var delegate: ImageCellDelegate?
+    private var viewModel: Model?
     
     
     // MARK: - Views
@@ -100,20 +103,17 @@ final class ImageCell: UITableViewCell {
     
     func setup(model: Model, delegate: ImageCellDelegate?) {
         self.delegate = delegate
+        self.viewModel = model
         photoView.image = model.image
         
-        if model.isImageFavorite {
-            
-        } else {
-            
-        }
+        setFavoriteState(isFavorite: model.isImageFavorite)
     }
     
     func setFavoriteState(isFavorite: Bool) {
         if isFavorite {
-            
+            favoritesButton.imageView?.tintColor = Constants.favoritesButtonSelectedBackgroundColor
         } else {
-            
+            favoritesButton.imageView?.tintColor = Constants.favoritesButtonBackgroundColor
         }
     }
     
@@ -132,6 +132,13 @@ final class ImageCell: UITableViewCell {
     }
     
     @objc private func didTapFavoriteButton() {
-        delegate?.didTapFavoriteButton()
+        guard let id = viewModel?.id else {
+            return
+        }
+        
+        viewModel?.isImageFavorite.toggle()
+        
+        setFavoriteState(isFavorite: viewModel?.isImageFavorite ?? false)
+        delegate?.didTapFavoriteButton(forImage: id)
     }
 }

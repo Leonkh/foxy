@@ -15,6 +15,7 @@ protocol MainScreenModel {
     
     var randomPhotoPublisher: OpenCombine.Published<Photo?>.Publisher  { get }
     var networkStatusPublisher: OpenCombine.Published<NetworkStatus>.Publisher { get }
+    var timeToRefreshPublisher: OpenCombine.Published<TimeInterval>.Publisher { get }
     
     func start()
     func didTapFavoriteButton(for photoId: String)
@@ -29,8 +30,10 @@ final class MainScreenModelImpl {
     
     @OpenCombine.Published private var randomPhoto: Photo?
     @OpenCombine.Published private var currentNetworkStatus: NetworkStatus = .enabled
+    @OpenCombine.Published private var timeToRefresh: TimeInterval = Constants.timeIntervalForUpdatePhoto
     private var cancellables: [AnyCancellable] = []
     private var timerToken: AnyCancellable?
+    private var timeToRefreshToken: AnyCancellable?
     
     private var data: GetInterestingnessResponse?
     private let coreDataManager: CoreDataManager
@@ -151,8 +154,10 @@ extension MainScreenModelImpl: MainScreenModel {
     
     var randomPhotoPublisher: OpenCombine.Published<Photo?>.Publisher  { $randomPhoto }
     var networkStatusPublisher: OpenCombine.Published<NetworkStatus>.Publisher { $currentNetworkStatus }
+    var timeToRefreshPublisher: OpenCombine.Published<TimeInterval>.Publisher { $timeToRefresh }
     
     func start() {
+        timeToRefreshToken?.cancel()
         switch currentNetworkStatus {
         case .enabled:
             loadPhotoListFromInternet()
@@ -163,6 +168,7 @@ extension MainScreenModelImpl: MainScreenModel {
     
     private func initTimer() {
         cancellables.removeAll()
+        refreshTimer()
         timerToken = Timer.publish(every: Constants.timeIntervalForUpdatePhoto,
                                    on: .main,
                                    in: .default)
@@ -176,6 +182,25 @@ extension MainScreenModelImpl: MainScreenModel {
                 self.randomPhoto = nil
                 self.timerToken?.cancel()
                 self.start()
+            })
+    }
+    
+    private func refreshTimer() {
+        timeToRefresh = Constants.timeIntervalForUpdatePhoto
+        timeToRefreshToken = Timer.publish(every: 1,
+                                           on: .main,
+                                           in: .default)
+            .autoconnect()
+            .receive(on: DispatchQueue.main.ocombine)
+            .sink(receiveValue: { [weak self] value in
+                guard let self = self else {
+                    return
+                }
+                
+                if self.timeToRefresh == .zero {
+                    return
+                }
+                self.timeToRefresh -= 1
             })
     }
     

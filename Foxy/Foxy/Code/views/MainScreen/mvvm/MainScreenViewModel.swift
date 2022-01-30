@@ -13,6 +13,7 @@ protocol MainScreenViewModel {
     
     var viewStatePublisher: OpenCombine.Published<MainScreenViewState>.Publisher  { get }
     var notificationPublisher: OpenCombine.Published<PopupNotification>.Publisher  { get }
+    var timeToRefreshPublisher: OpenCombine.Published<String>.Publisher { get }
     
     func start()
     func didTapFavoriteButton()
@@ -23,6 +24,7 @@ final class MainScreenViewModelImpl {
     
     @OpenCombine.Published private var viewState: MainScreenViewState = .loading
     @OpenCombine.Published private var notification: PopupNotification = .init(text: .empty, type: .information)
+    @OpenCombine.Published private var timeToRefresh: String = ""
     
     private var cancellables: [AnyCancellable] = []
     private let model: MainScreenModel
@@ -48,16 +50,18 @@ final class MainScreenViewModelImpl {
                 return
             }
             
-            if let image = photo.image {
-                self.currentMainPhoto = photo
-                let mainImageViewModel = ImageCell.Model(image: image,
-                                                         isImageFavorite: photo.isFavorite)
-                let config = MainScreenViewConfig(mainImageViewModel: mainImageViewModel,
-                                                  timerLabelText: .empty,
-                                                  infoTexts: [photo.title])
-                self.viewState = .content(config: config)
-            }
-        }).store(in: &cancellables)
+                if let image = photo.image {
+                    self.currentMainPhoto = photo
+                    let mainImageViewModel = ImageCell.Model(id: photo.id,
+                                                             image: image,
+                                                             isImageFavorite: photo.isFavorite)
+                    let mainImageViewInfoModel = ImageInfoCell.Model(title: photo.title,
+                                                                     owner: photo.owner)
+                    let config = MainScreenViewConfig(mainImageViewModel: mainImageViewModel,
+                                                      mainImageViewInfoModel: mainImageViewInfoModel)
+                    self.viewState = .content(config: config)
+                }
+            }).store(in: &cancellables)
         
         model.networkStatusPublisher
             .receive(on: DispatchQueue.main.ocombine)
@@ -75,6 +79,16 @@ final class MainScreenViewModelImpl {
                                           type: .error)
             }
         }).store(in: &cancellables)
+        
+        model.timeToRefreshPublisher
+            .receive(on: DispatchQueue.main.ocombine)
+            .sink(receiveValue: { [weak self] time in
+                guard let self = self else {
+                    return
+                }
+                
+                self.timeToRefresh = "Time to refresh " + time.description + "s"
+            }).store(in: &cancellables)
     }
 }
 
@@ -85,6 +99,7 @@ extension MainScreenViewModelImpl: MainScreenViewModel {
     var viewStatePublisher: OpenCombine.Published<MainScreenViewState>.Publisher  { $viewState }
     
     var notificationPublisher: OpenCombine.Published<PopupNotification>.Publisher  { $notification }
+    var timeToRefreshPublisher: OpenCombine.Published<String>.Publisher { $timeToRefresh }
     
     func start() {
         viewState = .loading

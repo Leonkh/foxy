@@ -138,8 +138,8 @@ extension FavoritesScreenViewImpl: UITableViewDataSource {
 
 extension FavoritesScreenViewImpl: ImageCellDelegate {
     
-    func didTapFavoriteButton() {
-        //
+    func didTapFavoriteButton(forImage id: String) {
+        viewModel.didTapFavoriteButton(for: id)
     }
     
 }
